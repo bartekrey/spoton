@@ -19,12 +19,12 @@ function Tutorial (props) {
   return (
     <div className={`popup ${open ? '' : 'closed'}`}>
       <div className="popup-top">
-        <h1>Tutorial</h1> <img alt="close" onClick={() => tooglePopup(!open)} src="/close.svg"/>
+        <h1>Tutorial</h1> <img alt="close" onClick={() => tooglePopup(!open)} src="./close.svg"/>
       </div>
       <p>Select your own area by tapping on free spots: a new screen will ask for details</p>
       <p>Taken spots appear in two colours</p>
-      <span><img alt="Green circle" src="/green.svg"/>Green : free to join</span>
-      <span><img alt="Pink circle" src="/pink.svg"/>Pink: don’t disturb</span>
+      <span><img alt="Green circle" src="./green.svg"/>Green : free to join</span>
+      <span><img alt="Pink circle" src="./pink.svg"/>Pink: don’t disturb</span>
 
     </div>
   )
@@ -58,16 +58,16 @@ export default function App() {
 
           <div className="footer">
             <span>Select your area or check out other areas</span>
-            <img alt="info" onClick={() => setShowTutorial(!showTutorial)} src="/info.svg"/>
+            <img alt="info" onClick={() => setShowTutorial(!showTutorial)} src="./info.svg"/>
           </div>
 
         </div>
       :
         <div className="Welcome">
-          <img alt="Spoton" src="/LOGO.svg"/>
+          <img alt="Spoton" src="./LOGO.svg"/>
           <p>You know best what is spot on! </p>
           <p className="center-text">Customise your spaces to suit your needs  –  focus alone, invite discussion or join others!</p>
-          <img alt="HSL logo" src="/HSL.png" onClick={() => LogIn(!loggedin)}/>
+          <img alt="HSL logo" src="./HSL.png" onClick={() => LogIn(!loggedin)}/>
           <span>Scan HSL card to Log in</span>
         </div>}
     </div>
