@@ -1,38 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&display=swap');
+
+
+
 .App {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, rgba(106, 41, 246, 0.93) 50.17%, #1CA6B9 100%);
+}
+
+
+.Welcome {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height:100vh;
+}
+
+.Screen {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height:100vh;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+span {
+  font-size: 1.5rem;
+}
+
+.center-text {
+  margin: 0 6rem ;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: 3px solid #65FA86;
+  border-radius: 30px;
+  background: #7B61FF;
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button.logout {
+  min-width: 12rem;
+
+}
+
+.header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #1FA3BC;
 }
 
-.App-link {
-  color: #61dafb;
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.layout {
+  height: 772px;
+  width: 324px;
+  background-image: url('../public/new_layout.svg');
+  margin: 3rem;
+  background-repeat: no-repeat;
+   background-position: center center;
+}
+
+
+.popup {
+  margin-right: 3rem;
+  margin-top: 3rem;
+
+  padding: 3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #D4F8FD;
+  color: #4A1FA6;
+}
+
+.closed{
+  display: none;
+}
+
+.popup-top {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.CirclesArray {
+  margin-left: 150px;
+  margin-top: 20px;
+  width: 170px;
+  flex-flow: row wrap;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+
+.circle {
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  align-self: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.6rem;
+  border-radius: 1rem;
+  border: 1px solid #65FA86;
+  transition: all 0.5s ease-in-out;
+}
+
+.active {
+  transform: scale(1,1);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: #65FA86;
+  border: 3px solid #51C68E;
 }

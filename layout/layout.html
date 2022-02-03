@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+</head>
+
+<body>
+</body>
+
+</html>
+
+
+<script>
+
+let img;
+function preload() {
+  img = loadImage('../public/layout.svg');
+}
+
+  function Circle(x, y, size) {
+    this.clicked = true;
+    this.size = size;
+    this.x = x;
+    this.y = y;
+
+    if (this.clicked == false) {
+      noFill();
+    } else {
+      fill(0);
+    }
+
+    ellipse(this.x, this.y, this.size, this.size);
+    this.mouseClicked = function() {
+      this.clicked = true
+    }
+  }
+
+
+  function setup() {
+    createCanvas(324, 772)
+    var step = 40;
+    var rows = 18;
+    var colums = 4;
+
+    var circles = [];
+
+    for (let i = 0; i < colums; i++) {
+      circles[i] = []
+      for (let j = 0; j < rows; j++) {
+        circles[i][j] = new Circle(170 + i * step, 45 + j * step, 1)
+      }
+    }
+  }
+
+  function draw() {}
+</script>
