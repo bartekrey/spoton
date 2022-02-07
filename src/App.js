@@ -1,26 +1,26 @@
 import './App.css';
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 let activeCircles = [];
 
 function Circle (props) {
 
-  const [active, toogleActive] = useState(false);
+  const [activeCircle, toogleCircle] = useState(false);
 
   function addToSelected () {
-    if (active === false) {
-      toogleActive(!active);
+    if (activeCircle === false) {
+      toogleCircle(!activeCircle);
       activeCircles.push(props.id);
       console.log(activeCircles);
     } else {
-      toogleActive(!active);
+      toogleCircle(!activeCircle);
       activeCircles= activeCircles.filter(item => item !== props.id)
       console.log(activeCircles);
     }
   }
 
   return (
-    <div id={props.id} onClick={() => addToSelected()} className={`circle ${active ? 'active' : ''}`}>
+    <div id={props.id} key={props.id} onClick={() => addToSelected()} className={`circle ${activeCircle ? 'active' : ''}`}>
     </div>
   )
 }
@@ -34,7 +34,7 @@ function CirclesArray (props) {
 
   {keysArray.map(id => {
     return (
-      <Circle id={id} />
+      <Circle id={id} key={id} />
     )
   })}
     </div>
@@ -42,6 +42,7 @@ function CirclesArray (props) {
 }
 
 function CreateSpot (props) {
+
   return (
     <div onClick={props.onClick} className="CreateSpot"><img alt="Done" src="./done.svg" />
     </div>
@@ -67,15 +68,48 @@ function Tutorial (props) {
 }
 
 
-
 export default function App() {
 
   const [loggedin, logIn] = useState (false);
   const [done, accept] = useState (false);
-  const [showTutorial, setShowTutorial] = useState (false);
   const [thisIsDesignA, setDesign] = useState (false);
 
+
   function Screen () {
+    const [showTutorial, setShowTutorial] = useState (false);
+
+
+    useEffect ( () => {
+      console.log("I started effect");
+      // eslint-disable-next-line
+      const selectedArea = activeCircles.map(id => {
+        let element = document.getElementById(id)
+        return (element.getBoundingClientRect())
+      })
+    })
+
+
+/*
+    function Spot (props) {
+      const circles = props.circles;
+
+      var coordinates = circles.map(id => {
+        console.log(id);
+        let element = document.getElementById(id);
+        console.log(element);
+        return (element.getBoundingClientRect())
+      })
+
+      console.log(coordinates);
+      return (
+        <div>
+          {coordinates}
+        </div>
+      )
+    }
+*/
+
+
     return (
       <div className="Screen">
         <div className="header">
@@ -86,12 +120,18 @@ export default function App() {
 
         <div className="main">
 
-          <div className="layout">
+        <div className="layout">
             <CirclesArray />
 
             <CreateSpot onClick={() => accept(!done)} />
 
           </div>
+
+          {/*
+          <Spot circles={[2,3]} />
+          <Spot circles={selectedArea} />
+          */}
+
           <div className="popUps">
             { showTutorial ? <Tutorial /> : null }
           </div>
@@ -120,52 +160,76 @@ export default function App() {
   }
 
   function NewSpot () {
+
+    const [clicked, click] = useState ("");
+    const [chosenActivity, setActivity] = useState("");
+
+    function ActivityButton (props) {
+      const [active, setActive] = useState (false);
+
+      function setActivityFunction () {
+        setActivity(props.name);
+        console.log(props.name);
+        console.log(chosenActivity);
+
+        console.log(active);
+        setActive(!active);
+        console.log(active);
+      }
+
+      return (
+        <button onClick={setActivityFunction} className={`activity ${active ? 'active' : ''}`}> {props.name} </button>
+      )
+    }
+
     return (
-      <div class="Form">
+      <div className="Form">
       <div className="header">
         <h1>CoID & CoDe Homebase</h1>
         <h1 className="user">Imran</h1>
-        <button className="logout" onClick={() => logIn(!loggedin)}>Log out</button>
+        <button className="logout" onClick={() => logIn("!loggedin")}>Log out</button>
       </div>
 
 
         <form>
 
-        <img alt="close" className="align-flex-end" onClick={() => accept(!done)} src="./close.svg"/>
+        <img alt="close" className="align-flex-end" onClick={() => accept(!done)} src="./close_white.svg"/>
 
 
         {thisIsDesignA
           ?
           <div className="field">
-            <label for="name">Name your area</label> <br/>
-            <textarea id="name" name="name">
-            What are you planning to do?</textarea> <br/>
+            <label htmlFor="name">Name your area</label> <br/>
+            <textarea id="name" name="name" defaultValue="What are you planning to do?">
+            </textarea> <br/>
           </div>
         :
         <div className="field">
-          <label for="name">Label your area</label> <br/>
+          <label htmlFor="name">Label your area</label> <br/>
           <div className="row">
-            <button className="activity">Study session</button>
-            <button className="activity">Hang out</button>
-            <button className="activity">Thesis</button>
-            <button className="activity">Discussion</button>
-            <button className="activity">Knitting</button>
-            <button className="activity">Group work</button>
-            <button className="activity">Reading Circle</button>
-            <button className="activity">Chillin'</button>
-            <button className="custom">........</button>
+            <ActivityButton name="Study session" />
+
+            <button onClick={() => setActivity("study session")} className="activity">Discussion</button>
+            <button onClick={() => setActivity("study session")} className="activity">Knitting</button>
+            <button onClick={() => setActivity("study session")} className="activity">Group work</button>
+            <button onClick={() => setActivity("study session")} className="activity">Reading Circle</button>
+            <button onClick={() => setActivity("study session")} className="activity">Chillin'</button>
+            <button onClick={() => setActivity("study session")} className="custom">........</button>
           </div>
         </div>
       }
 
 
         <div className="field">
-          <label for="description">Additional information</label> <br/>
-           <textarea id="description" name="description">
-           Anything others should know?</textarea> <br/>
+          <label htmlFor="description">Additional information</label> <br/>
+           <textarea id="description" name="description" defaultValue="Anything others should know?">
+           </textarea> <br/>
            <div className="row">
-            <button className="join">Please join </button>
-            <button className="donot">Do not disturb </button>
+            <button className={`please-join ${clicked === "please-join" ? 'active' : ''}`}
+            onClick={() => click("please-join" ? "please-join" : "")}>Please join </button>
+
+            <button className={`dont-disturb ${clicked === "dont-disturb" ? 'active' : ''}`}
+            onClick={() => click("dont-disturb" ? "dont-disturb" : "")}>Do not disturb </button>
            </div>
         </div>
 
@@ -182,17 +246,20 @@ export default function App() {
 
 
   if (loggedin && done ) {
+    console.log("Logged in and done with area selection")
     return (
       <div className="App">
         <NewSpot/>
       </div>
       )
   } else if (loggedin) {
+    console.log("Just logged in")
       return(
         <div className="App">
           <Screen/>
         </div>)
     } else {
+      console.log("Logged out")
       return (
         <div className="App">
           <Welcome/>
@@ -200,13 +267,3 @@ export default function App() {
       )
     }
 }
-
-/*
-return (
-  <div className="App">
-    {loggedin ?
-      <Screen />
-    :
-      <Welcome />}
-  </div>
-);*/

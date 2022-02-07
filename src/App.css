@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&display=swap');
 
 
-
 .App {
   font-family: 'Montserrat', sans-serif;
   display: flex;
@@ -46,7 +45,7 @@ form {
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 div {
@@ -109,6 +108,7 @@ button {
   background: #D4F8FD;
   color: #7B61FF;
   font-weight: 600;
+  margin: 0.5rem 0.5rem;
 }
 
 button.logout {
@@ -122,20 +122,38 @@ button.activity {
   margin: 0.5rem 0.5rem;
 }
 
+button.activity.active {
+  border: 3px solid #1597A0;
+  background: #65FA86;
+}
+
 button.big {
   align-self: center;
   font-size: 1.5rem;
   padding: 0.8rem 1.6rem;
 }
 
-button.join {
+button.please-join {
   margin-top: 1rem;
   color: #1CA6B9;
 }
 
-button.donot {
+button.please-join.active {
+  color: #7B61FF;
+  background-color: #65FA86;
+  border: 3px solid #1597A0;
+}
+
+
+button.dont-disturb {
   margin-top: 1rem;
   color: #F807C3;
+}
+
+button.dont-disturb.active {
+  color: #FFF;
+  background-color: #F807C3;
+  border: 3px solid #1597A0;
 }
 
 .header {
@@ -241,7 +259,7 @@ button.donot {
   transition: all 0.5s ease-in-out;
 }
 
-.active {
+.circle.active {
   transform: scale(1,1);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
