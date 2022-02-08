@@ -21,7 +21,7 @@
   height:100vh;
 }
 
-.Form {
+.AreaCreation {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -30,12 +30,12 @@
   height:100vh;
 }
 
-form {
+.form {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
+  margin-top: 3rem;
   height:100%;
-  margin: 3rem 6rem;
   max-width: 459px;
 }
 
@@ -53,13 +53,31 @@ div {
 }
 
 textarea {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   padding: 1rem;
   color: rgba(106, 41, 246, 0.8);;
   background: #D4F8FD;
   border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
-  width: 100%;
-  height: 4rem;
+  width: 459px;
+  height: 7.2rem;
+}
+
+.custom-tag {
+  align-self: center;
+  width: 8rem;
+  background: #D4F8FD;
+  border-radius: 10px;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: 3px solid #65FA86;
+  border-radius: 30px;
+  background: #D4F8FD;
+  color: #7B61FF;
+  font-weight: 600;
+  margin: 0.5rem 0.5rem;
 }
 
 input {
@@ -72,7 +90,7 @@ label {
   margin-bottom: 1rem;
 }
 
-.Screen {
+.AreaSelection {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -91,9 +109,24 @@ span {
   font-size: 1.5rem;
 }
 
+.flex-span {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .center-text {
   margin: 0 6rem ;
   text-align: center;
+}
+
+.space-between{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
 }
 
 h1 {
@@ -185,25 +218,29 @@ button.dont-disturb.active {
   height: 772px;
   width: 324px;
   background-image: url('../public/new_layout.svg');
-  margin: 3rem;
+  padding: 3rem;
   background-repeat: no-repeat;
    background-position: center center;
 }
 
 
 .popup {
+  height: 676px;
   margin-right: 3rem;
   margin-top: 3rem;
-
+  font-weight: bold;
   padding: 3rem;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   border-radius: 10px;
   background: #D4F8FD;
   color: #4A1FA6;
 }
+
+.to-right {
+align-self: flex-end;}
 
 .closed{
   display: none;
@@ -220,16 +257,67 @@ button.dont-disturb.active {
 
 .CirclesArray {
   margin-left: 150px;
-  margin-top: 20px;
-  width: 170px;
+  margin-top: 21px;
+  width: 155px;
   flex-flow: row wrap;
-  display: flex;
-  align-items: center;
-  align-self: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
+.Areas {
+  margin-left: 150px;
+  margin-top: -717px;
+  width: 155px;
+  height: 717px;
+  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: 3.2rem 3.2rem 3.2rem;
+  grid-template-rows: 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem 3.2rem;
 
-.CreateSpot {
+}
+
+.area {
+  background: #65FA86;
+  border: 3px solid #51C68E;
+  color: #7336F5;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.area.dont-disturb {
+  background: #F807C3;
+  border: 3px solid #51C68E;
+  color: #FFFFFF;
+}
+
+.area.please-join {
+  background: #65FA86;
+  border: 3px solid #51C68E;
+  color: #7336F5;
+}
+
+.area-title {
+  text-align: center;
+  display: block;
+  font-size: 1rem;
+}
+
+.area-title.vertical {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+
+.area-title.diagonal {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+
+.SubmitArea {
   position: relative;
   display: flex;
   align-items: center;
@@ -255,7 +343,7 @@ button.dont-disturb.active {
   height: 2rem;
   margin: 0.6rem;
   border-radius: 1rem;
-  border: 1px solid #65FA86;
+  border: 2px solid #65FA86;
   transition: all 0.5s ease-in-out;
 }
 
