@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spoton/static/css/main.1f157512.css",
-    "main.js": "/spoton/static/js/main.e1721b9e.js",
+    "main.css": "/spoton/static/css/main.87ffbad7.css",
+    "main.js": "/spoton/static/js/main.250067f6.js",
     "static/js/787.e875c38d.chunk.js": "/spoton/static/js/787.e875c38d.chunk.js",
     "static/media/new_layout.svg": "/spoton/static/media/new_layout.fef650351773938ec392.svg",
     "index.html": "/spoton/index.html",
-    "main.1f157512.css.map": "/spoton/static/css/main.1f157512.css.map",
-    "main.e1721b9e.js.map": "/spoton/static/js/main.e1721b9e.js.map",
+    "main.87ffbad7.css.map": "/spoton/static/css/main.87ffbad7.css.map",
+    "main.250067f6.js.map": "/spoton/static/js/main.250067f6.js.map",
     "787.e875c38d.chunk.js.map": "/spoton/static/js/787.e875c38d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f157512.css",
-    "static/js/main.e1721b9e.js"
+    "static/css/main.87ffbad7.css",
+    "static/js/main.250067f6.js"
   ]
 }
